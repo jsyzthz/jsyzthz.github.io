@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>本地获取Scratch3素材 | Huazhong’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="本地获取Scratch3素材" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="由于国内政策原因，导致scratch3官方部分域名无法访问。受此影响开发时候需要使用官方的一些在线素材将无法获取。例如：角色，背景和声音等。" />
+<meta property="og:description" content="由于国内政策原因，导致scratch3官方部分域名无法访问。受此影响开发时候需要使用官方的一些在线素材将无法获取。例如：角色，背景和声音等。" />
+<link rel="canonical" href="/jekyll/update/2020/10/10/fetch-scratch-media-library-assets.html" />
+<meta property="og:url" content="/jekyll/update/2020/10/10/fetch-scratch-media-library-assets.html" />
+<meta property="og:site_name" content="Huazhong’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-10T10:20:06+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"本地获取Scratch3素材","url":"/jekyll/update/2020/10/10/fetch-scratch-media-library-assets.html","dateModified":"2020-10-10T10:20:06+08:00","datePublished":"2020-10-10T10:20:06+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/update/2020/10/10/fetch-scratch-media-library-assets.html"},"description":"由于国内政策原因，导致scratch3官方部分域名无法访问。受此影响开发时候需要使用官方的一些在线素材将无法获取。例如：角色，背景和声音等。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Huazhong's blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Huazhong&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">本地获取Scratch3素材</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-10-10T10:20:06+08:00" itemprop="datePublished">Oct 10, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>由于国内政策原因，导致scratch3官方部分域名无法访问。受此影响开发时候需要使用官方的一些在线素材将无法获取。例如：角色，背景和声音等。</p>
+
+<p>如果熟悉scratch3桌面版本开发的读者，处理这个比较得心应手，拿来就用。官方桌面版本自带了下载素材脚本，方便了在无网络情况下也可以使用scratch3。本文将讲解如何将scratch-desktop项目下的下载素材脚本移动至当前开发的项目中。可能有部分人有疑问为什么不直接官方的scratch-desktop的项目中直接运行此脚本呢？回答是可以的，但是需要注意需要将您当前项目的相关素材配置json文件覆盖到scratch-desktop中，否则导致部分素材不匹配无法显示。当然这样做也方便了后续再次更新资源。</p>
+
+<p>具体操作步骤：</p>
+
+<ol>
+  <li>
+    <p>迅速打开您的梯子（VPN/SS/SSR）</p>
+  </li>
+  <li>
+    <p>打开或者克隆scratch-desktop（https://github.com/LLK/scratch-desktop.git）至本地</p>
+  </li>
+  <li>
+    <p>参考scratch-desktop项目将下列文件拷贝至当前项目（我的是scratch-gui）</p>
+
+    <blockquote>
+      <p>scratch-desktop/scripts/lib/libraries.js    –&gt;  scratch-gui/scripts/lib/libraries.js
+scratch-desktop/scripts/fetchMediaLibraryAssets.js   –&gt;  scratch-gui/scripts/fetchMediaLibraryAssets.js</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>拷贝scratch-desktop项目中文件package.json的<strong>fetch</strong>命令至scratch-gui项目中package.json文件中</p>
+
+    <blockquote>
+      <p>“fetch”: “rimraf ./static/assets/ &amp;&amp; mkdirp ./static/assets/ &amp;&amp; node ./scripts/fetchMediaLibraryAssets.js”</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>更新相关文件中引用路径</p>
+  </li>
+  <li>
+    <p>如果使用SSR等代理软件时需要添加依赖“https-proxy-agent”并修改fetchMediaLibraryAssets.js文件中相关配置。具体参考如下代码：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fetchAsset</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">md5</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// const myAgent = connectionPool.pop() || new https.Agent({ keepAlive: true });</span>
+    <span class="kd">var</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">http_proxy</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">http://127.0.0.1:1080</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">agent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpsProxyAgent</span><span class="p">(</span><span class="nx">proxy</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">getOptions</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">host</span><span class="p">:</span> <span class="nx">ASSET_HOST</span><span class="p">,</span>
+        <span class="na">path</span><span class="p">:</span> <span class="s2">`/internalapi/asset/</span><span class="p">${</span><span class="nx">md5</span><span class="p">}</span><span class="s2">/get/`</span><span class="p">,</span>
+        <span class="c1">// agent: myAgent</span>
+        <span class="na">agent</span><span class="p">:</span> <span class="nx">agent</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">urlHuman</span> <span class="o">=</span> <span class="s2">`//</span><span class="p">${</span><span class="nx">getOptions</span><span class="p">.</span><span class="nx">host</span><span class="p">}${</span><span class="nx">getOptions</span><span class="p">.</span><span class="nx">path</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nx">https</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">getOptions</span><span class="p">,</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">!==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">callback</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Request failed: status code </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">}</span><span class="s2"> for </span><span class="p">${</span><span class="nx">urlHuman</span><span class="p">}</span><span class="s2">`</span><span class="p">));</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kd">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">OUT_PATH</span><span class="p">,</span> <span class="nx">md5</span><span class="p">),</span> <span class="p">{</span> <span class="na">encoding</span><span class="p">:</span> <span class="dl">'</span><span class="s1">binary</span><span class="dl">'</span> <span class="p">});</span>
+        <span class="nx">stream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="nx">chunk</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">stream</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// connectionPool.push(myAgent);</span>
+            <span class="nx">stream</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Fetched </span><span class="p">${</span><span class="nx">urlHuman</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+            <span class="nx">callback</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>待所有资源下载完成后请根据需要修改项目中原官方的一些素材链接至新的地址即可。</p>
+  </li>
+</ol>
+
+  </div><a class="u-url" href="/jekyll/update/2020/10/10/fetch-scratch-media-library-assets.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Huazhong&#39;s blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Huazhong&#39;s blog</li><li><a class="u-email" href="mailto:t@jtx.me">t@jtx.me</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jsyzthz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jsyzthz</span></a></li><li><a href="https://www.twitter.com/jsyzthz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jsyzthz</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>没有最好只有更好.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
